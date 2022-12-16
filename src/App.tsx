@@ -1,29 +1,29 @@
-import React, { useState } from 'react'
-import Header from './components/Header'
-import InputField from './components/InputField'
-import List from './components/List';
-import Todo from './components/Modal';
+import React, { useState } from "react";
+import Header from "./components/Header";
+import InputField from "./components/InputField";
+import List from "./components/List";
+import Todo from "./components/Modal";
 
-const App: React.FC= () => {
-  const [todo, setTodo] = useState<string>('');
+const App: React.FC = () => {
+  const [todo, setTodo] = useState<string>("");
   const [todos, setTodos] = useState<Todo[]>([]);
 
   console.log(todos);
-  const handleAdd = (e:React.FormEvent)=>{
+  const handleAdd = (e: React.FormEvent) => {
     e.preventDefault();
-    if(todo){
-      setTodos([...todos,{id:Date.now(),todo:todo,isDone:false}])
-      setTodo('');
+    if (todo) {
+      setTodos([...todos, { id: Date.now(), todo: todo, isDone: false }]);
+      setTodo("");
     }
-  }
+  };
   // console.log(todos);
   return (
     <div>
-      <Header/>
+      <Header />
       <InputField todo={todo} setTodo={setTodo} handleAdd={handleAdd} />
-      <List setTodos={setTodos} todos={todos}/>
+      <List setTodos={setTodos} todos={todos} />
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
